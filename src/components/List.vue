@@ -1,7 +1,7 @@
 <template>
     <div id="List">
         <ol>
-            <li v-for="n in count" v-bind:key="n"><Item /></li>
+            <li v-for="n in count" v-bind:key="n" :class="color[n%2]"><Item /></li>
         </ol>
 
     </div>
@@ -17,7 +17,12 @@
         data() {
             return {
                 count : 3,
+                color:["peach", "white"],
             }
         },
     }
 </script>
+
+<style scoped>
+    @import '../assets/css/to_do_list.css';
+</style>

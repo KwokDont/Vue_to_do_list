@@ -1,0 +1,78 @@
+#header .span {
+    font-style: italic
+}
+
+#add_input {
+    width: 350px;
+    height: 20px;
+}
+
+#add_button {
+    font-size: 17px;
+    margin-left: 5px;
+    width: 70px;
+    height: 30px;
+    border: 0px;
+    border-radius: 10px;
+    color: white;
+    background-color: #fc999a;
+}
+
+#footButton {
+    text-align: center;
+    margin-top: 20px;
+    margin-right: 60px;
+}
+
+#footButton button {
+    font-size: 18px;
+    margin-left: 20px;
+    border: 0px;
+    color: #fc999a;
+    background-color: white;
+}
+
+#List ol {
+    padding-left: 20px;
+}
+
+#List ol .white {
+    padding: 0;
+    margin: 0;
+}
+
+#List ol .peach {
+    padding: 0;
+    margin: 0;
+    background-color: #f4ecec;
+    height: 20px;
+}
+
+#listItem input[type="checkbox"]:after {
+    content: "✔";
+}
+
+#listItem input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-top: 0;
+    background-color: #fff;
+    text-align: center;
+    line-height: 15px;
+    border: 1px solid #c9c9c9;
+    border-radius: 2px;
+    color: #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    outline: none;
+}
+
+#listItem input[type="checkbox"]:checked {
+    color: #fff;
+    background-color: #43adea;
+    border: 1px solid #43adea;
+}
+

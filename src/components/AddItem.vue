@@ -1,7 +1,7 @@
 <template>
     <div id="addItem">
-        <input />
-        <button>Add</button>
+        <input id="add_input" />
+        <button id="add_button">Add</button>
     </div>
 </template>
 
@@ -10,3 +10,7 @@
         name: "addItem",
     }
 </script>
+
+<style scoped>
+    @import '../assets/css/to_do_list.css';
+</style>

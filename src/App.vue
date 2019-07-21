@@ -3,6 +3,7 @@
     <Header />
     <AddItem />
     <List />
+    <FootButtom/>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import Header from './components/Header';
 import List from './components/List';
 import AddItem from './components/AddItem';
+import FootButtom from './components/FootButton';
 
 export default {
   name: 'app',
@@ -17,6 +19,7 @@ export default {
     Header,
     List,
     AddItem,
+    FootButtom,
   }
 }
 </script>
