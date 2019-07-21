@@ -1,7 +1,7 @@
 <template>
     <div id="List">
         <ol>
-            <li v-for="n in count" v-bind:key="n" :class="color[n%2]"><Item /></li>
+            <li v-for="(item,index) in todoItem" v-bind:key="index" :class="color[index%2]"><Item :itemMessage="item"/></li>
         </ol>
 
     </div>
@@ -14,10 +14,12 @@
         components: {
             Item,
         },
+        props:{
+            todoItem: Array,
+        },
         data() {
             return {
-                count : 3,
-                color:["peach", "white"],
+                color:["white", "peach"],
             }
         },
     }

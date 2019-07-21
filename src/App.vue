@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Header />
-    <AddItem />
-    <List />
+    <AddItem @submitNewItem="addListItem" />
+    <List :todoItem="todoItem"/>
     <FootButtom/>
   </div>
 </template>
@@ -20,7 +20,17 @@ export default {
     List,
     AddItem,
     FootButtom,
-  }
+  },
+  data() {
+    return {
+      todoItem:[],
+    }
+  },
+  methods: {
+    addListItem(newItem){
+      this.todoItem.push(newItem);
+    }
+  },
 }
 </script>
 

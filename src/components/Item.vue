@@ -1,14 +1,17 @@
 <template>
     <div id="Item">
         <p>
-            <input type="checkbox" class="checkbox" />12345
+            <input type="checkbox" class="checkbox" />{{itemMessage}}
         </p>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Item"
+        name: "listItem",
+        props:{
+            itemMessage: String,
+        }
     }
 </script>
 
