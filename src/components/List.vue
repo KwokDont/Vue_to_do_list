@@ -1,8 +1,8 @@
 <template>
     <div id="List">
         <ol>
-            <li v-for="(item,index) in todoItem" v-bind:key="item.item" :class="color[index%2]">
-                <Item :item="item" @checkItem="checkItem" />
+            <li v-for="(item,index) in todoItem" v-bind:key="item.id" :class="color[index%2]">
+                <Item :item="item"/>
             </li>
         </ol>
 
@@ -23,11 +23,6 @@
             return {
                 color:["white", "peach"],
             };
-        },
-        methods: {
-            checkItem(item) {
-                this.$emit("checkItem", item);
-            }
         }
     }
 </script>

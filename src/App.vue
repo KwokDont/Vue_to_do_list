@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <Header />
-    <AddItem @submitNewItem="addListItem" />
-    <List :todoItem="showList" @checkItem="checkItem" />
-    <FootButtopm @changeShow="changeShow" />
+    <AddItem />
+    <List :todoItem="getList" />
+    <FootButtom @changeShow="changeShow" />
   </div>
 </template>
 
@@ -23,47 +23,28 @@ export default {
   },
   data() {
     return {
-      todoItem: [],
-      doneItem: [],
-      showList: [],
-      show: "all"
+      showList: this.getAllList,
+      show : "all"
+    }
+  },
+  computed: {
+    getList(){
+      if (this.show === "all") {
+        return this.$store.getters.getAllList
+      }else if (this.show === "todo"){
+        return this.$store.getters.getActiveList
+      }else{
+        return this.$store.getters.getCompleteList
+      }
     }
   },
   methods: {
-    addListItem(newItem) {
-      this.todoItem.push(newItem);
-      this.changeShow(this.show);
-    },
-    checkItem(item) {
-      if (item.status === "check") {
-        console.log("check", item);
-        this.todoItem.splice(
-          this.todoItem.map(item => item.item).indexOf(item.item),1);
-        this.doneItem.push(item);
-      } else {
-        console.log("else", item);
-        this.doneItem.splice(
-          this.doneItem.map(item => item.item).indexOf(item.item),1);
-        this.todoItem.push(item);
-      }
-      console.log("todo", this.todoItem);
-      console.log("done", this.doneItem);
-      this.changeShow(this.show);
-    },
     changeShow(show) {
-      this.show = show;
-      if (show === "all") {
-        let temp = this.todoItem;
-        this.showList = temp.concat(this.doneItem);
-      } else if (show === "todo") {
-        let temp = this.todoItem;
-        this.showList = temp;
-      } else {
-        let temp = this.doneItem;
-        this.showList = temp;
-      }
-  },
+      this.show = show
+    }
+  }
 }
+
 </script>
 
 <style>

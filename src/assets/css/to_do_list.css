@@ -33,12 +33,17 @@
 }
 
 #List ol {
-    padding-left: 20px;
+    margin-left:46%;
 }
 
 #List ol .white {
     padding: 0;
     margin: 0;
+}
+
+#List {
+    margin-left: 17%;
+    width: 840px;
 }
 
 #List ol .peach {
@@ -81,7 +86,7 @@
     color: gray;
   }
   
-  #Item .none{
-    text-decoration:none;
-  }
+#Item .none{
+  text-decoration:none;
+}
 

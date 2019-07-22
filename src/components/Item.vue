@@ -22,7 +22,7 @@
         methods: {
           handleCheck(){
             this.check === "check" ? (this.check = "none") : (this.check = "check");
-            this.$emit("checkItem", { item: this.item.item, status: this.check });
+            this.$store.commit('checkTodoItem',{id:this.item.id,check:this.check})
           }
         }
     }

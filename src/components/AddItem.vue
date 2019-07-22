@@ -19,7 +19,7 @@
                     alert("不能为空");
                     return;
                 }
-                this.$emit("submitNewItem", this.newItem);
+                this.$store.commit('submitNewItem', {id:Math.random()*100,item:this.newItem,status:"none"})
                 this.newItem = "";
             }
         }
