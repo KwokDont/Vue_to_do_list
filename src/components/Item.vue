@@ -1,27 +1,30 @@
 <template>
     <div id="Item">
         <p>
-            <input type="checkbox" class="checkbox" v-on:click="handleCheck"/><span :class="check" >{{itemMessage}}</span>
+            <input type="checkbox" class="checkbox" @click="handleCheck" v-model="status" />
+            <span :class="check">{{item.item}}</span>
         </p>
     </div>
 </template>
 
 <script>
     export default {
-        name: "listItem",
+        name: "Item",
         props:{
-            itemMessage: String,
+            item: Object
         },
         data() {
           return {
-            check: "none",
-          }
+            check: this.item.status,
+            status: this.item.status==="check" ? true : false,
+          };
         },
         methods: {
           handleCheck(){
-            this.check === "check" ? this.check = "none" : this.check = "check";
+            this.check === "check" ? (this.check = "none") : (this.check = "check");
+            this.$emit("checkItem", { item: this.item.item, status: this.check });
           }
-        },
+        }
     }
 </script>
 

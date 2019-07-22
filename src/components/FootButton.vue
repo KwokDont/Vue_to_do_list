@@ -1,8 +1,8 @@
 <template>
     <div id="footButton">
-        <button>ALL</button>
-        <button>Active</button>
-        <button>Complete</button>
+        <button v-on:click="handleClick(`all`)">ALL</button>
+        <button v-on:click="handleClick(`todo`)">Active</button>
+        <button v-on:click="handleClick(`done`)">Complete</button>
     </div>
 </template>
 
@@ -10,7 +10,9 @@
     export default {
         name: "footButton",
         methods: {
-
+            handleClick(param){
+                this.$emit('changeShow',param)
+            }
         },
     }
 </script>
