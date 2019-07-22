@@ -1,7 +1,7 @@
 <template>
     <div id="Item">
         <p>
-            <input type="checkbox" class="checkbox" />{{itemMessage}}
+            <input type="checkbox" class="checkbox" v-on:click="handleCheck"/><span :class="check" >{{itemMessage}}</span>
         </p>
     </div>
 </template>
@@ -11,7 +11,17 @@
         name: "listItem",
         props:{
             itemMessage: String,
-        }
+        },
+        data() {
+          return {
+            check: "none",
+          }
+        },
+        methods: {
+          handleCheck(){
+            this.check === "check" ? this.check = "none" : this.check = "check";
+          }
+        },
     }
 </script>
 

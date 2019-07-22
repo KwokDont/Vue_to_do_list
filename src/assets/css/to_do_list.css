@@ -48,11 +48,11 @@
     height: 20px;
 }
 
-#listItem input[type="checkbox"]:after {
+#Item input[type="checkbox"]:after {
     content: "✔";
 }
 
-#listItem input[type="checkbox"] {
+#Item input[type="checkbox"] {
     width: 16px;
     height: 16px;
     margin-top: 0;
@@ -70,9 +70,18 @@
     outline: none;
 }
 
-#listItem input[type="checkbox"]:checked {
+#Item input[type="checkbox"]:checked {
     color: #fff;
     background-color: #43adea;
     border: 1px solid #43adea;
 }
+
+#Item .check{
+    text-decoration:line-through;
+    color: gray;
+  }
+  
+  #Item .none{
+    text-decoration:none;
+  }
 
