@@ -18,7 +18,15 @@ const actions = {
         axios.post(baseUrl,data)
         .then(response => {
             if(response.status === 201){
-                this.dispatch('getToDos');
+                context.dispatch('getToDos');
+            }
+        }).catch()
+    },
+    updateToDo(context,data){
+        axios.put(`${baseUrl}/${data.id}`,data)
+        .then(response => {
+            if(response.status === 200){
+                context.dispatch('getToDos');
             }
         }).catch()
     }
