@@ -23,9 +23,11 @@ export default {
   },
   data() {
     return {
-      showList: this.getAllList,
       show : "all"
     }
+  },
+  mounted(){
+    this.$store.dispatch('getToDos')
   },
   computed: {
     getList(){
