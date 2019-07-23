@@ -20,6 +20,7 @@
                     return;
                 }
                 this.$store.commit('submitNewItem', {id:Math.random()*100,item:this.newItem,status:false})
+                this.$store.dispatch('addToDo',{item:this.newItem, status:false});
                 this.newItem = "";
             }
         }

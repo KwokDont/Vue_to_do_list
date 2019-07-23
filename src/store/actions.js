@@ -14,6 +14,14 @@ const actions = {
             commit('setToDoList',{list: response.data})
         }).catch();
     },
+    addToDo(context,data){
+        axios.post(baseUrl,data)
+        .then(response => {
+            if(response.status === 201){
+                this.dispatch('getToDos');
+            }
+        }).catch()
+    }
 }
 
 export default actions
