@@ -3,6 +3,7 @@
     <p v-if="!edit">
       <input type="checkbox" class="checkbox" @click="handleCheck" v-model="status" />
       <span :class="check" @dblclick="handleEdit">{{item.item}}</span>
+      <button class="button" @click="handleDelete">×</button>
     </p>
     <p v-else>
       <input v-model="input" @keyup.enter="handleEdit" />
@@ -33,6 +34,9 @@ export default {
         this.$store.dispatch("updateToDo", { ...this.item, item: this.input });
       }
       this.edit = !this.edit;
+    },
+    handleDelete() {
+      this.$store.dispatch("deleteTodo", this.item);
     }
   },
   computed: {
@@ -45,4 +49,9 @@ export default {
 
 <style scoped>
 @import "../assets/css/to_do_list.css";
+
+#Item button {
+  margin-left: 20px;
+  float: right;
+}
 </style>
