@@ -6,7 +6,7 @@
       <button class="button" @click="handleDelete">×</button>
     </p>
     <p v-else>
-      <input v-model="input" @keyup.enter="handleEdit" />
+      <input v-model="input" @keyup.enter="handleEdit"/>
     </p>
   </div>
 </template>
@@ -15,7 +15,7 @@
 export default {
   name: "Item",
   props: {
-    item: Object,
+    item: Object
   },
   data() {
     return {
@@ -49,9 +49,4 @@ export default {
 
 <style scoped>
 @import "../assets/css/to_do_list.css";
-
-#Item button {
-  margin-left: 20px;
-  float: right;
-}
 </style>
