@@ -5,6 +5,3 @@
   </div>
 </template>
 
-<style scoped>
-  @import '../assets/css/to_do_list.css';
-</style>

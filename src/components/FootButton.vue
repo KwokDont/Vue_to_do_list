@@ -1,8 +1,8 @@
 <template>
   <div id="footButton">
-    <button v-on:click="handleClick(`all`)">ALL</button>
-    <button v-on:click="handleClick(`todo`)">Active</button>
-    <button v-on:click="handleClick(`done`)">Complete</button>
+    <a-button v-on:click="handleClick(`all`)">ALL</a-button>
+    <a-button v-on:click="handleClick(`todo`)">Active</a-button>
+    <a-button v-on:click="handleClick(`done`)">Complete</a-button>
   </div>
 </template>
 
@@ -16,7 +16,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-  @import '../assets/css/to_do_list.css';
-</style>

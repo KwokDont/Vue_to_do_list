@@ -27,11 +27,11 @@ export default {
   methods: {
     handleCheck() {
       this.status = !this.status;
-      this.$store.dispatch("updateToDo", { ...this.item, status: this.status });
+      this.$store.dispatch("updateTodo", { ...this.item, status: this.status });
     },
     handleEdit() {
       if (this.input !== "") {
-        this.$store.dispatch("updateToDo", { ...this.item, item: this.input });
+        this.$store.dispatch("updateTodo", { ...this.item, item: this.input });
       }
       this.edit = !this.edit;
     },
@@ -46,7 +46,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-@import "../assets/css/to_do_list.css";
-</style>

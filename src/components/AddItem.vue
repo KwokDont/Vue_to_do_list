@@ -1,7 +1,13 @@
 <template>
   <div id="addItem">
-    <input id="add_input" type="text" v-model="newItem" />
-    <button id="add_button" v-on:click="handleAddItem">Add</button>
+    <a-row  type="flex" class="row-bg" justify="center">
+      <a-col :span="8">
+        <a-input id="add_input" type="text" v-model="newItem" />
+      </a-col>
+      <a-col :span="2">
+        <a-button id="add_button" v-on:click="handleAddItem">Add</a-button>
+      </a-col>
+    </a-row>
   </div>
 </template>
 
@@ -19,13 +25,10 @@ export default {
         alert("不能为空");
         return;
       }
-      this.$store.dispatch('addToDo', {item:this.newItem,status:false})
+      this.$store.dispatch("addTodo", { item: this.newItem, status: false });
       this.newItem = "";
     }
   }
 };
 </script>
 
-<style scoped>
-@import "../assets/css/to_do_list.css";
-</style>
