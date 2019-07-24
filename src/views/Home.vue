@@ -11,19 +11,17 @@
     <a-row :gutter="20">
       <a-col :span="4">
         <h5>导航栏</h5>
-        <a-menu default-active="$route.path" class="el-menu-vertical-demo" router>
-          <a-menu-item index="/home/todolist">
-            <i class="el-icon-menu"></i>
-            <span slot="title">代办事项</span>
+        <a-menu @click="handleClick" style="width: 256px" mode="inline">
+          <a-menu-item key="/home/todolist">
+            <span>代办事项</span>
           </a-menu-item>
-          <a-menu-item index="/home/me">
-            <i class="el-icon-setting"></i>
-            <span slot="title">我的</span>
+          <a-menu-item key="/home/me">
+            <span>我的</span>
           </a-menu-item>
         </a-menu>
       </a-col>
       <a-col :span="12">
-        <a-card class="box-card">
+        <a-card hoverable>
           <router-view />
         </a-card>
       </a-col>
@@ -41,21 +39,20 @@ export default {
     }
   },
   methods: {
+    handleClick(e) {
+      this.$router.push(e.key);
+    },
     handleBack() {
-      this.$confirm("返回欢迎页面, 是否继续?", "提示", {
-        confirmButtonText: "确定",
-        cancelButtonText: "取消",
-        type: "warning"
-      })
-        .then(() => {
+      this.$confirm({
+        title: "提示",
+        content: "返回欢迎页面, 是否继续?",
+        onOk: () => {
           this.$router.push("/");
-        })
-        .catch(() => {
-          this.$message({
-            type: "info",
-            message: "已取消"
-          });
-        });
+        }
+      });
+    },
+    handlePush() {
+      this.$router.push("/");
     }
   }
 };

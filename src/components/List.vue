@@ -10,12 +10,7 @@
         <a slot="actions" @click="handleEdit(item)">edit</a>
         <a slot="actions" @click="handleDelete(item)">delete</a>
         <a slot="actions" @click="handleDone(item)">done</a>
-        <s v-if="edit">
-          <span @dblclick="handleEdit(item)">{{item.item}}</span>
-        </s>
-        <s v-else>
-          <a-input v-model="input" value="123" @keyup:enter="handleChange(item)"></a-input>
-        </s>
+        <span @dblclick="handleEdit(item)">{{item.item}}</span>
       </a-list-item>
     </a-list>
   </div>
@@ -30,7 +25,6 @@ export default {
   data() {
     return {
       color: ["white", "peach"],
-      edit: true,
       input: ""
     };
   },
@@ -39,7 +33,7 @@ export default {
       console.log(item);
       this.$store.dispatch("deleteTodo", item);
     },
-    handleCheck(item) {
+    handleDone(item) {
       item.status = !item.status;
       this.$store.dispatch("updateTodo", {
         id: item.id,
@@ -48,16 +42,16 @@ export default {
       });
     },
     handleEdit() {
-      this.edit = !this.edit;
+      this.edit = !this.edit
     },
-    handleChange(item) {
+    handleChange(item){
       this.$store.dispatch("updateTodo", {
         id: item.id,
         todo: this.input,
         status: item.status
       });
     }
-  }
+  },
 };
 </script>
 

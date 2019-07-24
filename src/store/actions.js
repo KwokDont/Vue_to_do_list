@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import {AxiosUtil} from '../plugins/axios'
 
 Vue.use(VueAxios, axios);
 
@@ -8,38 +9,16 @@ const baseUrl = "http://5d36b1f086300e0014b644e6.mockapi.io/api/v1/todolist";
 
 const action = {
   getTodos({ commit }) {
-    Vue.axios
-      .get(baseUrl)
-      .then((response) => {
-        commit('setTodoList', { list: response.data })
-      }).catch(error => console.log(error))
+    AxiosUtil(baseUrl,'get').then((res) => {commit('setTodoList', { list: res })}, (err) => {console.log(err)})
   },
   addTodo(context, data) {
-    Vue.axios
-      .post(baseUrl, data)
-      .then((response)=>{
-        if (response.status === 201) {
-          context.dispatch('getTodos')
-        }
-      }).catch(error => console.log(error))
+    AxiosUtil(baseUrl,'post',data).then(()=>{context.dispatch('getTodos')}, (err) => {console.log(err)})
   },
-  updateTodo(context , data) {
-    Vue.axios
-      .put(`${baseUrl}/${data.id}`, data)
-      .then((response)=>{
-        if (response.status === 200) {
-          context.dispatch('getTodos');
-        }
-      }).catch(error => console.log(error))
+  updateTodo(context, data) {
+    AxiosUtil(`${baseUrl}/${data.id}`,'put',data).then(()=>{context.dispatch('getTodos')}, (err) => {console.log(err)})
   },
   deleteTodo(context, data) {
-    Vue.axios
-      .delete(`${baseUrl}/${data.id}`)
-      .then((response)=>{
-        if (response.status === 200) {
-          context.dispatch('getTodos');
-        }
-      }).catch(error => console.log(error))
+    AxiosUtil(`${baseUrl}/${data.id}`,'delete').then(()=>{context.dispatch('getTodos')}, (err) => {console.log(err)})
   }
 }
 

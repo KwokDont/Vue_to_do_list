@@ -1,7 +1,7 @@
 <template>
   <div id="welcome">
     <div id="nav">
-      <el-button @click="handleUse">开始使用</el-button>
+      <a-button @click="handleUse">开始使用</a-button>
     </div>
     <a-row type="flex" class="row-bg" justify="center">
       <a-col :span="2">请输入姓名：</a-col>
